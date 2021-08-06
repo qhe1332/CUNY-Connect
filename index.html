@@ -3,18 +3,21 @@
 	<head>
 		<title>CUNY Connect</title>
 		<link rel = "stylesheet" href = "index.css" />
+		<link rel="shortcut icon" href="favicon.ico" />
 		<style></style>
 		<script src = "index.js"></script>
 		<script></script>
+		
 	</head>
 		
-	<body onload = "initialize();">
+	<body>
 		<form method = "post" action = "quiz.html">
-			Username: <input type = "text" name = "user" />
+			Username: <input type = "text" name = "user" /> 
 			Email Address: <input type = "text" name = "email" />
 			Password: <input type = "text" name = "pass" />
 			First Name: <input type = "text" name = "first" />
 			Last Name: <input type = "text" name = "last" />
+			<input type = "hidden" name = "register" value = "true" />
 			<input type = "submit" />
 		</form>
 	</body>
