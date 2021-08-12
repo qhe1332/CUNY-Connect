@@ -8,7 +8,6 @@ const port = 8080;
 
 http.createServer(function(req, res)
 {
-	res.writeHead(200, {'Content-Type': 'text/plain'})
 	fs.readFile('index.html', function(err, data)
 	{
 		if(err)
@@ -17,9 +16,11 @@ http.createServer(function(req, res)
 			res.write('Error');
 			res.end();
 		}
-		else{
+		 else{
 			res.writeHead(200, {"Content-Type": "text/html"});
 			res.write(data);
+			console.log(req.url);
+			console.log(req.method);
 			res.end();
 		}
 	})

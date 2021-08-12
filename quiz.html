@@ -1,14 +1,102 @@
 <html>
 	<head>
 		<title>Quiz</title>
+		<h1 id="title">Quiz</h1>
 		<script>
 			function initialize()
 			{
 				document.getElementById("greet").innerHTML = data.first + " " + data.last + ".";
+
 			}
 		</script>
 	</head>
 	<body onload = "initialize();">
-		Hello, <span id = "greet"></span>
+
+		Hello and welcome to our quiz page. This questionnaire will help us to connect with you cuny student. :)<span id = "greet"></span>
+		<div>
+			<label for="msg"></label>
+			<p> 1. What cuny college do you go to? </p>
+		    <select name="cuny college" id="cuny college">
+				<option value="BCC">Bronx Community College</option>
+				<option value="Hostos">Hostos Community College</option>
+				<option value="Kingsborough">Kingsborough Community College</option>
+				<option value="BMCC">Borough of Manhattan Community College</option>
+				<option value="Guttman">Guttman Community College</option>
+				<option value="Laguardia">LaGuardia Community College</option>
+				<option value="Queensborough">Queensborough Community College</option>
+				<option value="Lehman">Lehman College</option>
+				<option value="Brooklyn">Brooklyn College</option>
+				<option value="Medgar">Medgar Evers College</option>
+				<option value="Citytech">New York City College of Technology</option>
+				<option value="Baruch">Baruch College</option>
+				<option value="CCNY">The City College of New York</option>
+				<option value="Hunter">Hunter College</option>
+				<option value="John Jay">John Jay College of Criminal Justice</option>
+				<option value="Macaulay">Macaulay Honors College</option>
+				<option value="Queens">Queens College</option>
+				<option value="York">York College</option>
+				<option value="College of Staten Island">College of Staten Island</option>
+				<option value="Cuny Law">Cuny School of Law</option>
+				<option value="Cuny Professional">Cuny School of Professional Studies</option>
+				<option value="Cuny Urban">Cuny School of Labor and Urban Studies</option>
+				<option value="Cuny Graduate">Cuny Graduate Center</option>
+				<option value="Cuny Journalism">Craig Newmark Graduate School of Journalism at Cuny</option>	
+			</select>
+
+			<p> 2. What is your major? </p>
+			<form>
+				<select name = "dropdown">
+				   <option value = "Art">Art</option>
+				   <option value = "Accounting">Accounting</option>
+				   <option value = "Business">Business</option>
+				   <option value = "Bio">Biology</option>
+				   <option value = "Chem">Chemistry</option>
+				   <option value = "CS">Computer Science</option>
+				   <option value = "Early Edu">Early Education</option>
+				   <option value = "Economics">Economics</option>
+				   <option value = "Finance">Finance</option>
+				   <option value = "History">History</option>
+				   <option value = "Maths">Math</option>
+				   <option value = "Marketing">Marketing</option>
+				   <option value = "Nursing">Nursing</option>
+				   <option value = "Physics">Physic</option>
+				   <option value = "Psycology">Psycology</option>  
+				</select>
+			 </form>
+			<p> 3. What is your minor? </p>
+			<form>
+				<select name = "dropdown">
+				   <option value = "Art">Art</option>
+				   <option value = "Accounting">Accounting</option>
+				   <option value = "Business">Business</option>
+				   <option value = "Bio">Biology</option>
+				   <option value = "Chem">Chemistry</option>
+				   <option value = "CS">Computer Science</option>
+				   <option value = "Early Edu">Early Education</option>
+				   <option value = "Economics">Economics</option>
+				   <option value = "Finance">Finance</option>
+				   <option value = "History">History</option>
+				   <option value = "Maths">Math</option>
+				   <option value = "Marketing">Marketing</option>
+				   <option value = "Nursing">Nursing</option>
+				   <option value = "Physics">Physic</option>
+				   <option value = "Psycology">Psycology</option>  
+				</select>
+			 </form>
+			<p> 4. What year are you in? </p>
+			<form>
+				<select name = "dropdown">
+				   <option value = "Freshman" selected>Freshman</option>
+				   <option value = "">Sophomore</option>
+				   <option value = "">Junior</option>
+				   <option value = "">Senior</option>
+				</select>
+			 </form>
+			 <p> 5. What is your career goal? </p>
+			<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
+			<div>
+			<label for="msg"></label>
+			<p> 6. What are some hobbies do you have? </p>
+			<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
 	</body>
 </html>
