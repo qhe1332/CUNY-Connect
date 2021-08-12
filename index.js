@@ -11,19 +11,18 @@ http.createServer(function(req, res)
 	res.writeHead(200, {'Content-Type': 'text/plain'})
 	fs.readFile('index.html', function(err, data)
 	{
-		if (err)
+		if(err)
 		{
-			console.log(err)
-			res.writeHead(404)
-			res.write('Error: File Not Found')
+			res.writeHead(404, {"Content-Type": "text/html"});
+			res.write('Error');
+			res.end();
 		}
-		else
-		{
-			res.writeHead(200, {"Content-Type": "text/html"})
-			res.write(data)
+		else{
+			res.writeHead(200, {"Content-Type": "text/html"});
+			res.write(data);
+			res.end();
 		}
 	})
-    res.end()
-}).listen(port)
+}).listen(port);
 
-console.log(`Server is running on http://${host}:${port}`)
+console.log(`Server is running on http://${host}:${port}`);
