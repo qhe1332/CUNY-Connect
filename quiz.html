@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<title>Quiz</title>
-		<h1 id="title">Quiz</h1>
+		<title>Questionnaire</title>
+		<h1 id="title">Questionnaire</h1>
 		<script>
 			function initialize()
 			{
@@ -80,22 +80,37 @@
 						<option value = "Physics">Physic</option>
 						<option value = "Psycology">Psycology</option>  
 						</select>
-						<p> 4. What year are you in? </p>
-						<select name = "dropdown">
-						<option value = "1" selected>Freshman</option>
-						<option value = "2">Sophomore</option>
-						<option value = "3">Junior</option>
-						<option value = "4">Senior</option>
-						<option value = "5">Graduate</option>
-			        </select>
+				<p> 4. What year are you in? </p>
+						<input type = "checkbox" name = "1" value = "on"> Freshman
+						<input type = "checkbox" name = "2" value = "on"> Sophomore
+						<input type = "checkbox" name = "3" value = "on"> Junior
+						<input type = "checkbox" name = "4" value = "on"> Senior
+						<input type = "checkbox" name = "5" value = "on"> Graduate
 			    <p> 5. What is your career goal? </p>
-				    <div>
-			        <textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
-					<label for="msg"></label>
-			    <p> 6. What are some hobbies do you have? </p>
-				    <div>
+				<div>
 					<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
-					<input type = "submit" name = "submit" value = "Submit" />
+			    <p> 6. What are some hobbies do you have? </p>
+				<input type = "checkbox" name = "1" value = "on"> Painting
+				<input type = "checkbox" name = "2" value = "on"> Cooking
+				<input type = "checkbox" name = "3" value = "on"> Baking
+				<input type = "checkbox" name = "4" value = "on"> Dancing
+				<input type = "checkbox" name = "5" value = "on"> Board Game
+				<input type = "checkbox" name = "6" value = "on"> Video Game
+				<input type = "checkbox" name = "7" value = "on"> Reading
+				<input type = "checkbox" name = "8" value = "on"> Manga
+				<input type = "checkbox" name = "9" value = "on"> Travel
+				<input type = "checkbox" name = "10" value = "on"> Design
+				<input type = "checkbox" name = "11" value = "on"> Fishing
+				<input type = "checkbox" name = "12" value = "on"> Hang out 
+				<input type = "checkbox" name = "13" value = "on"> Net Surfing
+				<input type = "checkbox" name = "14" value = "on"> Hiking
+				<input type = "checkbox" name = "15" value = "on"> Surfing
+				<input type = "checkbox" name = "16" value = "on"> Skating
+				<input type = "checkbox" name = "17" value = "on"> Biking
+
+
+                <div><input type = "submit" name = "submit" value = "Submit" /></div>
+				
 		</form>
 	</body>
 </html>
