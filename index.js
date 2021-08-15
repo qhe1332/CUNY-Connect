@@ -11,28 +11,29 @@ function alertMessage(message)
 	alert(message);
 	return;
 }
-/* Validation 
-	- check if all fields are filled
-	- check if the email in account is a cuny email.
-	- return true if pass validation, else return false*/
+/* Validation function
+	- check if all fields are filled. If not return "fill"
+	- check if the email in account is a cuny email. If not return "email"
+	- return "pass" if pass validation*/
 function validate(accountInfo)
 {
+	message = "pass";
 	if(accountInfo.user == "" || accountInfo.pass == "" || accountInfo.first == "" || accountInfo.last == "")
 	{
-		console.log("Please fill in all information!");
-		return false;
+		message = "fill";
+		return message;
 	}
 	if(!accountInfo.email.endsWith("cuny.edu"))
 	{
-		console.log("Invalid email. Please enter your CUNY Email.");
-		return false;
+		message = "email";
+		return message;
 	}
-	return true;
+	return message;
 	
 }
 
 /* Registration function
-	- check info validation, if false, return.
+	- check info validation, if "", return.
 	- check if account is already in database. If not, add to database. */
 function registration(accountInfo)
 {
@@ -42,10 +43,15 @@ function registration(accountInfo)
 		return;
 	}
 	/*check info validation */
-	if(!validate(accountInfo))
+	if(validate(accountInfo) == "fill")
 	{
-		console.log("Validation failed");
-		return;
+		console.log("Validation failed: Please fill in all information!");
+		return validate(accountInfo); //return str
+	}
+	if(validate(accountInfo) == "email")
+	{
+		console.log("Validation failed: Invalid email. Please enter your CUNY Email.");
+		return validate(accountInfo); // return str
 	}
 
 	/*check if the same email exist in database*/
@@ -89,14 +95,19 @@ http.createServer(function(req, res)
 					var accountInfo = qs.parse(input.toString());
 
 					userObj = registration(accountInfo);
-					if(userObj == undefined)
+					if(userObj == "fill")
 					{
-						res.writeHead(301, {"Location": "/index.html"}); //stay on page
+						res.writeHead(301, {"Location": "/fillError.html"}); //stay on page
+						res.write(data);
+					}
+					else if(userObj == "email")
+					{
+						res.writeHead(301, {"Location": "/emailError.html"}); //stay on page
+						res.write('<script>document.write("Validation failed: Invalid email. Please enter a valid CUNY Email.")</script>');
 					}
 					else{
 						res.writeHead(200, {"Content-Type": "text/html"}); //html file
 					}
-
 					res.write(data);
 					res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
 					res.end();
