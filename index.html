@@ -3,23 +3,39 @@
 	<head>
 		<title>CUNY Connect</title>
 		<link rel = "stylesheet" href = "index.css" />
+		<link rel= "icon" href= "Logo.png">
+		<link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
 		<style></style>
 		<script src = "index.js"></script>
-		<script></script>
+		<script>
+			/*function initialize()
+			{
+				if()
+				{
+					document.getElementById("message").innerHTML = "Validation failed: Please fill in all information!";
+				}else if()
+				{
+					document.getElementById("message").innerHTML = "Validation failed: Invalid email. Please enter a valid CUNY Email.";
+				}
+			}*/
+		</script>
 		
 	</head>
 		
 	<body onload = "initialize();">
-		<img src = "Logo.png" width = "170" />
-		<form method = "post" action = "quiz.html">
-			<title>CUNY-CONNECT</title>
-			<h1 id="title">CUNY-CONNECT</h1>
-			Username: <input type = "text" name = "user" /><br>
+		<img class = "logo" src = "Logo.png"/>
+		<h1 class = "title">CUNY Connect</h1>
+		<h2 class = "subTitle">Sign-Up Form</h2>
+		<form id = "signUpForm" method = "post" action = "quiz.html">
 			Email Address: <input type = "text" name = "email" /><br>
+			Username: <input type = "text" name = "user" /><br>
 			Password: <input type = "text" name = "pass" /><br>
 			First Name: <input type = "text" name = "first" /><br>
 			Last Name: <input type = "text" name = "last" /><br>
+
+			<input type = "hidden" name = "register" value = "true" />
 			<input type = "submit" />
 		</form>
+		<div id = "message"></div>
 	</body>
 </html>

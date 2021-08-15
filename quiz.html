@@ -1,24 +1,21 @@
 <html>
 	<head>
 		<title>Questionnaire</title>
-		<h1 id="title">Questionnaire</h1>
-		h1{
-    font-size: 2cm;
-    text-align: center;
-    text-transform: capitalize;
-    background-color: purple;
-  }
+		<link rel="icon" href="Logo.png">
+		<link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
 		<script>
 			function initialize()
 			{
-				document.getElementById("greet").innerHTML = data.first + " " + data.last + ".";
-
+				document.getElementById("name").innerHTML = data.first + " " + data.last;
 			}
 		</script>
 	</head>
 	<body onload = "initialize();">
-
-		Hello and welcome to our quiz page. This questionnaire will help us to connect with you to a CUNY student. :)<span id = "greet"></span>
+		<h1 id="title">Questionnaire</h1>
+		<div id = "greeting">
+			Hello <span id = "name"></span>! 
+			Welcome to our quiz page. This questionnaire will help us to connect with you to a CUNY student. :)
+		</div>
 		<div>
 		<form method = "post" action = "Chat.html">
 			<label for="msg"></label>
