@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Quiz</title>
+		<title>Questionnaire</title>
 		<link rel="icon" href="Logo.png">
 		<link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
 		<script>
@@ -11,101 +11,109 @@
 		</script>
 	</head>
 	<body onload = "initialize();">
-		<h1 id="title">Quiz</h1>
+		<h1 id="title">Questionnaire</h1>
 		<div id = "greeting">
 			Hello <span id = "name"></span>! 
 			Welcome to our quiz page. This questionnaire will help us to connect with you to a CUNY student. :)
 		</div>
 		<div>
+		<form method = "post" action = "Chat.html">
 			<label for="msg"></label>
-			<p> 1. What cuny college do you go to? </p>
-		    <select name="cuny college" id="cuny college">
-				<option value="BCC">Bronx Community College</option>
-				<option value="Hostos">Hostos Community College</option>
-				<option value="Kingsborough">Kingsborough Community College</option>
-				<option value="BMCC">Borough of Manhattan Community College</option>
-				<option value="Guttman">Guttman Community College</option>
-				<option value="Laguardia">LaGuardia Community College</option>
-				<option value="Queensborough">Queensborough Community College</option>
-				<option value="Lehman">Lehman College</option>
-				<option value="Brooklyn">Brooklyn College</option>
-				<option value="Medgar">Medgar Evers College</option>
-				<option value="Citytech">New York City College of Technology</option>
-				<option value="Baruch">Baruch College</option>
-				<option value="CCNY">The City College of New York</option>
-				<option value="Hunter">Hunter College</option>
-				<option value="John Jay">John Jay College of Criminal Justice</option>
-				<option value="Macaulay">Macaulay Honors College</option>
-				<option value="Queens">Queens College</option>
-				<option value="York">York College</option>
-				<option value="College of Staten Island">College of Staten Island</option>
-				<option value="Cuny Law">Cuny School of Law</option>
-				<option value="Cuny Professional">Cuny School of Professional Studies</option>
-				<option value="Cuny Urban">Cuny School of Labor and Urban Studies</option>
-				<option value="Cuny Graduate">Cuny Graduate Center</option>
-				<option value="Cuny Journalism">Craig Newmark Graduate School of Journalism at Cuny</option>	
-			</select>
+				<p> 1. What cuny college do you go to? </p>
+		    		<select name="cuny college" id="cuny college">
+						<option value="BCC">Bronx Community College</option>
+						<option value="Hostos">Hostos Community College</option>
+						<option value="Kingsborough">Kingsborough Community College</option>
+						<option value="BMCC">Borough of Manhattan Community College</option>
+						<option value="Guttman">Guttman Community College</option>
+						<option value="Laguardia">LaGuardia Community College</option>
+						<option value="Queensborough">Queensborough Community College</option>
+						<option value="Lehman">Lehman College</option>
+						<option value="Brooklyn">Brooklyn College</option>
+						<option value="Medgar">Medgar Evers College</option>
+						<option value="Citytech">New York City College of Technology</option>
+						<option value="Baruch">Baruch College</option>
+						<option value="CCNY">The City College of New York</option>
+						<option value="Hunter">Hunter College</option>
+						<option value="John Jay">John Jay College of Criminal Justice</option>
+						<option value="Macaulay">Macaulay Honors College</option>
+						<option value="Queens">Queens College</option>
+						<option value="York">York College</option>
+						<option value="College of Staten Island">College of Staten Island</option>
+						<option value="Cuny Law">Cuny School of Law</option>
+						<option value="Cuny Professional">Cuny School of Professional Studies</option>
+						<option value="Cuny Urban">Cuny School of Labor and Urban Studies</option>
+						<option value="Cuny Graduate">Cuny Graduate Center</option>
+						<option value="Cuny Journalism">Craig Newmark Graduate School of Journalism at Cuny</option>	
+			        </select>
+			    <p> 2. What is your major? </p>
+	                <select name = "dropdown">
+						<option value = "Art">Art</option>
+						<option value = "Accounting">Accounting</option>
+						<option value = "Business">Business</option>
+						<option value = "Bio">Biology</option>
+						<option value = "Chem">Chemistry</option>
+						<option value = "CS">Computer Science</option>
+						<option value = "Early Edu">Early Education</option>
+						<option value = "Economics">Economics</option>
+						<option value = "Finance">Finance</option>
+						<option value = "History">History</option>
+						<option value = "Maths">Math</option>
+						<option value = "Marketing">Marketing</option>
+						<option value = "Nursing">Nursing</option>
+						<option value = "Physics">Physic</option>
+						<option value = "Psycology">Psycology</option>  
+			        </select>
+			    <p> 3. What is your minor? </p>
+			       <select name = "dropdown">
+						<option value = "N/A">N/A</option>
+						<option value = "Art">Art</option>
+						<option value = "Accounting">Accounting</option>
+						<option value = "Business">Business</option>
+						<option value = "Bio">Biology</option>
+						<option value = "Chem">Chemistry</option>
+						<option value = "CS">Computer Science</option>
+						<option value = "Early Edu">Early Education</option>
+						<option value = "Economics">Economics</option>
+						<option value = "Finance">Finance</option>
+						<option value = "History">History</option>
+						<option value = "Maths">Math</option>
+						<option value = "Marketing">Marketing</option>
+						<option value = "Nursing">Nursing</option>
+						<option value = "Physics">Physic</option>
+						<option value = "Psycology">Psycology</option>  
+						</select>
+				<p> 4. What year are you in? </p>
+						<input type = "checkbox" name = "1" value = "on"> Freshman
+						<input type = "checkbox" name = "2" value = "on"> Sophomore
+						<input type = "checkbox" name = "3" value = "on"> Junior
+						<input type = "checkbox" name = "4" value = "on"> Senior
+						<input type = "checkbox" name = "5" value = "on"> Graduate
+			    <p> 5. What is your career goal? </p>
+				<div>
+					<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
+			    <p> 6. What are some hobbies do you have? </p>
+				<input type = "checkbox" name = "1" value = "on"> Painting
+				<input type = "checkbox" name = "2" value = "on"> Cooking
+				<input type = "checkbox" name = "3" value = "on"> Baking
+				<input type = "checkbox" name = "4" value = "on"> Dancing
+				<input type = "checkbox" name = "5" value = "on"> Board Game
+				<input type = "checkbox" name = "6" value = "on"> Video Game
+				<input type = "checkbox" name = "7" value = "on"> Reading
+				<input type = "checkbox" name = "8" value = "on"> Manga
+				<input type = "checkbox" name = "9" value = "on"> Travel
+				<input type = "checkbox" name = "10" value = "on"> Design
+				<input type = "checkbox" name = "11" value = "on"> Fishing
+				<input type = "checkbox" name = "12" value = "on"> Hang out 
+				<input type = "checkbox" name = "13" value = "on"> Net Surfing
+				<input type = "checkbox" name = "14" value = "on"> Hiking
+				<input type = "checkbox" name = "15" value = "on"> Surfing
+				<input type = "checkbox" name = "16" value = "on"> Skating
+				<input type = "checkbox" name = "17" value = "on"> Biking
 
-			<p> 2. What is your major? </p>
-			<form>
-				<select name = "dropdown">
-				   <option value = "Art">Art</option>
-				   <option value = "Accounting">Accounting</option>
-				   <option value = "Business">Business</option>
-				   <option value = "Bio">Biology</option>
-				   <option value = "Chem">Chemistry</option>
-				   <option value = "CS">Computer Science</option>
-				   <option value = "Early Edu">Early Education</option>
-				   <option value = "Economics">Economics</option>
-				   <option value = "Finance">Finance</option>
-				   <option value = "History">History</option>
-				   <option value = "Maths">Math</option>
-				   <option value = "Marketing">Marketing</option>
-				   <option value = "Nursing">Nursing</option>
-				   <option value = "Physics">Physic</option>
-				   <option value = "Psycology">Psycology</option>  
-				</select>
-			 </form>
-			<p> 3. What is your minor? </p>
-			<form>
-				<select name = "dropdown">
-				   <option value = "Art">Art</option>
-				   <option value = "Accounting">Accounting</option>
-				   <option value = "Business">Business</option>
-				   <option value = "Bio">Biology</option>
-				   <option value = "Chem">Chemistry</option>
-				   <option value = "CS">Computer Science</option>
-				   <option value = "Early Edu">Early Education</option>
-				   <option value = "Economics">Economics</option>
-				   <option value = "Finance">Finance</option>
-				   <option value = "History">History</option>
-				   <option value = "Maths">Math</option>
-				   <option value = "Marketing">Marketing</option>
-				   <option value = "Nursing">Nursing</option>
-				   <option value = "Physics">Physic</option>
-				   <option value = "Psycology">Psycology</option>  
-				</select>
-			 </form>
-			<p> 4. What year are you in? </p>
-			<form>
-				<select name = "dropdown">
-				   <option value = "1" selected>Freshman</option>
-				   <option value = "2">Sophomore</option>
-				   <option value = "3">Junior</option>
-				   <option value = "4">Senior</option>
-				   <option value = "5">Graduate</option>
 
-				</select>
-			 </form>
-			 <p> 5. What is your career goal? </p>
-			<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
-			<div>
-			<label for="msg"></label>
-			<p> 6. What are some hobbies do you have? </p>
-			<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
-			<form>
-				<input type = "submit" name = "submit" value = "Submit" />
-				<input type = "reset" name = "reset"  value = "Reset" />
-			 </form>
+                <div><input type = "submit" name = "submit" value = "Submit" /></div>
+				
+		</form>
 	</body>
 </html>
