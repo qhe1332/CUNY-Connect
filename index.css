@@ -23,3 +23,22 @@ body{
     line-height: 28px;
     text-align: center;
 }
+.fill{
+    padding-left: 400px;
+    padding-right: 400px;
+    height: 100px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+}
+.col{
+    float: left;
+    width: 50%;
+    line-height: 25px ;
+}
+#info{
+    float: right;
+}
+.submitButton{
+    padding: 50px;
+}
