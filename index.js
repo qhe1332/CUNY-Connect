@@ -6,11 +6,6 @@ var qs = require("querystring");
 const host = 'localhost';
 const port = 8080;
 
-function alertMessage(message)
-{
-	alert(message);
-	return;
-}
 /* Validation function
 	- check if all fields are filled. If not return "fill"
 	- check if the email in account is a cuny email. If not return "email"
@@ -33,8 +28,8 @@ function validate(accountInfo)
 }
 
 /* Registration function
-	- check info validation, if "", return.
-	- check if account is already in database. If not, add to database. */
+	- check info validation, if "fill" or "email", return that str.
+	- check if account is already in database. If not, return accountInfo object (data will be added into database after completing quiz)*/
 function registration(accountInfo)
 {
 	if (!accountInfo.register)
@@ -43,15 +38,10 @@ function registration(accountInfo)
 		return;
 	}
 	/*check info validation */
-	if(validate(accountInfo) == "fill")
+	if(validate(accountInfo) == "fill" || validate(accountInfo) == "email")
 	{
-		console.log("Validation failed: Please fill in all information!");
+		console.log("Validation failed:");
 		return validate(accountInfo); //return str
-	}
-	if(validate(accountInfo) == "email")
-	{
-		console.log("Validation failed: Invalid email. Please enter your CUNY Email.");
-		return validate(accountInfo); // return str
 	}
 
 	/*check if the same email exist in database*/
@@ -67,13 +57,25 @@ function registration(accountInfo)
 		}
 	}
 
-	fs.appendFile("database.txt", ";" + JSON.stringify(accountInfo), function(err){}); //add to database
-	
-	console.log("New Account");
-	console.log(accountInfo);
 	return accountInfo; //return account object
 }	
 
+/*Questionnaire function
+	- check if the POST request is a quiz
+	- add new user data and quiz answer into database*/
+function storeQuizData(inputData)
+{
+	if(!inputData.questionnaire)
+	{
+		console.log("Questionnaire not found.");
+		return;
+	}
+
+	fs.appendFile("database.txt", ";" + JSON.stringify(inputData), function(err){}); //add to database
+	
+	console.log("New Account");
+	console.log(inputData);
+}
 
 /* Web Server */
 http.createServer(function(req, res)
@@ -92,18 +94,24 @@ http.createServer(function(req, res)
 			if(req.method == "POST") //handle POST request
 			{
 				req.on('data', function(input){
-					var accountInfo = qs.parse(input.toString());
+					var inputData = qs.parse(input.toString());
 
-					userObj = registration(accountInfo);
-					if(userObj == "fill")
+					userObj = registration(inputData);
+					storeQuizData(inputData);
+					if(typeof userObj === 'string')//if a str is returned, there's an error
 					{
-						res.writeHead(301, {"Location": "/fillError.html"}); //stay on page
-						res.write(data);
-					}
-					else if(userObj == "email")
-					{
-						res.writeHead(301, {"Location": "/emailError.html"}); //stay on page
-						res.write('<script>document.write("Validation failed: Invalid email. Please enter a valid CUNY Email.")</script>');
+						if(userObj == "fill")
+						{
+							console.log("Please fill in all information!");
+							res.writeHead(301, {"Location": "/fillError.html"}); //stay on page
+							res.write(data);
+						}
+						else
+						{
+							console.log("Invalid email. Please enter your CUNY Email.");
+							res.writeHead(301, {"Location": "/emailError.html"}); //stay on page
+							res.write('<script>document.write("Validation failed: Invalid email. Please enter a valid CUNY Email.")</script>');
+						}
 					}
 					else{
 						res.writeHead(200, {"Content-Type": "text/html"}); //html file

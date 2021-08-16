@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>CUNY Connect</title>
+		<link rel = "stylesheet" href = "index.css" />
+		<link rel= "icon" href= "Logo.png">
+		<link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
+		<style>
+			div.fill{
+				padding-left: 40%;
+				padding-right: 40%;
+			}
+			span.col{
+				width:100%;
+			}
+		</style>
+		<script src = "index.js"></script>
+		<script></script>
+		
+	</head>
+		
+	<body>
+		<img class = "logo" src = "Logo.png"/>
+		<h1 class = "title">CUNY Connect</h1>
+		<h2 class = "subTitle">Sign In</h2>
+		<form id = "signInForm" method = "post" action = "match.html">
+			<div class = "fill">
+				<span class = "col">
+                Email Address: <input id = "info" type = "text" name = "email" /><br>
+                Username: <input id = "info" type = "text" name = "user" /><br>
+                Password: <input id = "info" type = "text" name = "pass" />
+				</span>
+			</div>
+
+			<input type = "hidden" name = "login" value = "true" />
+			<input class = "submitButton"type="image" alt="Submit" src="Submit-button.png" type = "submit" />
+		</form>
+		<a href="index.html">Sign up</a>
+	</body>
+</html>
