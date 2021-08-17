@@ -1,7 +1,30 @@
+body{
+  padding: 100px;
+  font-family: Raleway;
+}
+.logo{
+  width: 50px;
+}
+
 h1{
-    font-size: 2cm;
-    text-align: center;
-    text-transform: capitalize;
-    background-color: purple;
+    
+  font-family:  Raleway
+  font-style Bold
+  font-size 24px
+  Line-height 28px
+  Line-height 100%
+  Align Center
+  Vertical-align Center
+  display inline
+
   }
+
+  input[type=submit] {
+    background-color:#7332B5;
+    border:1px solid #fff;
+    font-family:'Raleway';
+    font-weight:700;
+    font-size:18px;
+    color:#FFFFFF
+    }
 

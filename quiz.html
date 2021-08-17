@@ -1,6 +1,8 @@
 <html>
 	<head>
+		
 		<title>Questionnaire</title>
+		<link rel = "stylesheet" href = "quiz.css" />
 		<link rel="icon" href="Logo.png">
 		<link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
 		<script>
@@ -11,12 +13,15 @@
 		</script>
 	</head>
 	<body onload = "initialize();">
-		<h1 id="title">Questionnaire</h1>
-		<div id = "greeting">
-			Hello <span id = "name"></span>! 
-			Welcome to our quiz page. This questionnaire will help us to connect with you to a CUNY student. :)
-		</div>
 		<div>
+		<h1 style="display: inline"><img class = "logo" src = "Logo.png"/>CUNY Connect</h1>
+		</div>
+		<br>
+		<div id = "greeting">
+			Hello <span id = "name"></span>! <div>
+			Welcome to our quiz page. This questionnaire will help us to connect with you to a CUNY student. :)</div>
+		
+		<h2 id="title">Questionnaire</h2>
 		<form method = "post" action = "Chat.html">
 			<label for="msg"></label>
 				<p> 1. What cuny college do you go to? </p>
@@ -111,7 +116,7 @@
 				<input type = "checkbox" name = "16" value = "on"> Skating
 				<input type = "checkbox" name = "17" value = "on"> Biking
 
-
+                <br><br>
                 <div><input type = "submit" name = "submit" value = "Submit" /></div>
 				
 		</form>
