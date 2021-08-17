@@ -7,18 +7,7 @@
 		<link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
 		<style></style>
 		<script src = "index.js"></script>
-		<script>
-			/*function initialize()
-			{
-				if()
-				{
-					document.getElementById("message").innerHTML = "Validation failed: Please fill in all information!";
-				}else if()
-				{
-					document.getElementById("message").innerHTML = "Validation failed: Invalid email. Please enter a valid CUNY Email.";
-				}
-			}*/
-		</script>
+		<script></script>
 		
 	</head>
 		
@@ -27,15 +16,21 @@
 		<h1 class = "title">CUNY Connect</h1>
 		<h2 class = "subTitle">Sign-Up Form</h2>
 		<form id = "signUpForm" method = "post" action = "quiz.html">
-			Email Address: <input type = "text" name = "email" /><br>
-			Username: <input type = "text" name = "user" /><br>
-			Password: <input type = "text" name = "pass" /><br>
-			First Name: <input type = "text" name = "first" /><br>
-			Last Name: <input type = "text" name = "last" /><br>
+			<div class = "fill">
+				<span class = "col">
+					Email Address: <input id = "info" type = "text" name = "email" /><br>
+					Username: <input id = "info" type = "text" name = "user" /><br>
+					Password: <input id = "info" type = "text" name = "pass" />
+				</span>
+				<span class = "col">
+					First Name: <input id = "info" type = "text" name = "first" /><br>
+					Last Name: <input id = "info" type = "text" name = "last" /><br>
+				</span>
+			</div>
 
 			<input type = "hidden" name = "register" value = "true" />
-			<input type = "submit" />
+			<input class = "submitButton"type="image" alt="Submit" src="Submit-button.png" type = "submit" />
 		</form>
-		<div id = "message"></div>
+		<a href="/login.html">Sign In</a>
 	</body>
 </html>

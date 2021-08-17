@@ -1,6 +1,5 @@
 <html>
 	<head>
-		
 		<title>Questionnaire</title>
 		<link rel = "stylesheet" href = "quiz.css" />
 		<link rel="icon" href="Logo.png">
@@ -9,6 +8,12 @@
 			function initialize()
 			{
 				document.getElementById("name").innerHTML = data.first + " " + data.last;
+
+				document.getElementById("emailAddress").value = data.email;
+				document.getElementById("username").value = data.user;
+				document.getElementById("password").value = data.pass;
+				document.getElementById("firstName").value = data.first;
+				document.getElementById("lastName").value = data.last;
 			}
 		</script>
 	</head>
@@ -22,8 +27,13 @@
 			Welcome to our quiz page. This questionnaire will help us to connect with you to a CUNY student. :)</div>
 		
 		<h2 id="title">Questionnaire</h2>
-		<form method = "post" action = "Chat.html">
 			<label for="msg"></label>
+			<form method = "post" action = "match.html">
+				<input type = "hidden" name = "email" id = "emailAddress" />
+				<input type = "hidden" name = "user" id = "username" />
+				<input type = "hidden" name = "pass" id = "password" />
+				<input type = "hidden" name = "first" id = "firstName" />
+				<input type = "hidden" name = "last" id = "lastName" />
 				<p> 1. What cuny college do you go to? </p>
 		    		<select name="cuny college" id="cuny college">
 						<option value="BCC">Bronx Community College</option>
@@ -89,12 +99,11 @@
 						<option value = "Psycology">Psycology</option>  
 						</select>
 				<p> 4. What year are you in? </p>
-				        <button class="button button1">Freshman</button>
-						<input type = "checkbox" name = "1" value = "on"> Freshman
-						<input type = "checkbox" name = "2" value = "on"> Sophomore
-						<input type = "checkbox" name = "3" value = "on"> Junior
-						<input type = "checkbox" name = "4" value = "on"> Senior
-						<input type = "checkbox" name = "5" value = "on"> Graduate
+						<input type = "radio" name = "year" value = "1"> Freshman
+						<input type = "radio" name = "year" value = "2"> Sophomore
+						<input type = "radio" name = "year" value = "3"> Junior
+						<input type = "radio" name = "year" value = "4"> Senior
+						<input type = "radio" name = "year" value = "5"> Graduate
 			    <p> 5. What is your career goal? </p>
 				<div>
 					<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
@@ -119,8 +128,7 @@
 
                 <br><br>
                 <input type = "hidden" name = "questionnaire" value = "true" />
-			<input class = "submitButton"type="image" alt="Submit" src="Submit-button.png" type = "submit" />
-				
+			<input class = "submitButton"type="image" alt="Submit" src="Submit-button.png" type = "submit" />		
 		</form>
 	</body>
 </html>
