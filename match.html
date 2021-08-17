@@ -9,7 +9,10 @@
     <link rel= "icon" href= "Logo.png">
     <link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
     <script>
-
+        function initialize()
+        {
+            document.getElementById("name").innerHTML = data.first + " " + data.last;
+        }
     </script>
 </head>
 <body onload = "initialize();">
