@@ -1,5 +1,5 @@
 body{
-  padding: 100px;
+  padding: 80px;
   font-family: Raleway;
 }
 .logo{
@@ -19,7 +19,7 @@ h1{
 
   }
 
-  input[type=submit] {
+  .button{
     background-color:#7332B5;
     border:1px solid #fff;
     font-family:'Raleway';
@@ -28,3 +28,4 @@ h1{
     color:#FFFFFF
     }
 
+    
