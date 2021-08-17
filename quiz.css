@@ -6,7 +6,10 @@ body{
 
   width: 50px;
 }
-
+#brandSignature{
+  padding-left: 80px;
+  padding-right: 80px;
+}
 h1{
   padding-left: 80px;
   padding-right: 80px;
