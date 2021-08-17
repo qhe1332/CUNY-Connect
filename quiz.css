@@ -1,6 +1,15 @@
+body{
+  font-family: Raleway;
+}
 
- h1{
-    font-size: 2cm;
-    text-align: center;
-    text-transform: capitalize;
-  }
+/*match.html*/
+.brandSignature{
+  padding-left: 80px;
+}
+div.intro{
+  background: #38B6FF;
+  padding-left: 80px;
+  padding-top: 30px;
+  width: 100%;
+  height: 80px;
+}
