@@ -6,6 +6,18 @@ var qs = require("querystring");
 const host = 'localhost';
 const port = 8080;
 
+/*RandomMatch function
+	- compare user data with accounts in database
+	- return an array of user email */
+function randomMatch()
+{
+
+}
+
+/**/
+
+
+
 /* Validation function
 	- check if all fields are filled. If not return "fill"
 	- check if the email in account is a cuny email. If not return "email"
