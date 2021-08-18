@@ -130,8 +130,13 @@ http.createServer(function(req, res)
 						res.writeHead(200, {"Content-Type": "text/html"}); //html file
 					}
 					res.write(data);
-					res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
-					res.write("<script>data = " + JSON.stringify(userObject) + "</script>");
+					if(userObject != undefined)
+					{
+						res.write("<script>data = " + JSON.stringify(userObject) + "</script>");
+					}
+					else{
+						res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
+					}
 					res.end();
 				})
 			}

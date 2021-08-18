@@ -25,14 +25,13 @@
 			<span style="font-size: 16px;">Welcome to our Profile page. This questionnaire will help us to connect with you to a CUNY student. :) </span>
 		</div>		
 		<div id = "quiz"><h2 id="title">Create Profile</h2>
-			<label for="msg"></label>
-			<form method = "post" action = "match.html">
-				<input type = "hidden" name = "email" id = "emailAddress" />
-				<input type = "hidden" name = "user" id = "username" />
-				<input type = "hidden" name = "pass" id = "password" />
-				<input type = "hidden" name = "first" id = "firstName" />
-				<input type = "hidden" name = "last" id = "lastName" />
-				<p> 1. What cuny college do you go to? </p>
+		<form method = "post" action = "match.html">
+			<input type = "hidden" name = "email" id = "emailAddress" />
+			<input type = "hidden" name = "user" id = "username" />
+			<input type = "hidden" name = "pass" id = "password" />
+			<input type = "hidden" name = "first" id = "firstName" />
+			<input type = "hidden" name = "last" id = "lastName" />
+			<p> 1. What cuny college do you go to? </p>
 				<select name="cuny-college">
 					<option value="Baruch College">Baruch College</option>
 					<option value="Borough of Manhattan Community College">Borough of Manhattan Community College</option>
@@ -59,74 +58,72 @@
 					<option value="Queensborough Community College">Queensborough Community College</option>
 					<option value="York College">York College</option>	
 				</select>
-			    <p> 2. What is your major? </p>
-	                <select name = "dropdown">
-						<option value = "Art">Art</option>
-						<option value = "Accounting">Accounting</option>
-						<option value = "Business">Business</option>
-						<option value = "Bio">Biology</option>
-						<option value = "Chem">Chemistry</option>
-						<option value = "CS">Computer Science</option>
-						<option value = "Early Edu">Early Education</option>
-						<option value = "Economics">Economics</option>
-						<option value = "Finance">Finance</option>
-						<option value = "History">History</option>
-						<option value = "Maths">Math</option>
-						<option value = "Marketing">Marketing</option>
-						<option value = "Nursing">Nursing</option>
-						<option value = "Physics">Physic</option>
-						<option value = "Psycology">Psycology</option>  
-			        </select>
-			    <p> 3. What is your minor? </p>
-			       <select name = "dropdown">
-						<option value = "N/A">N/A</option>
-						<option value = "Art">Art</option>
-						<option value = "Accounting">Accounting</option>
-						<option value = "Business">Business</option>
-						<option value = "Bio">Biology</option>
-						<option value = "Chem">Chemistry</option>
-						<option value = "CS">Computer Science</option>
-						<option value = "Early Edu">Early Education</option>
-						<option value = "Economics">Economics</option>
-						<option value = "Finance">Finance</option>
-						<option value = "History">History</option>
-						<option value = "Maths">Math</option>
-						<option value = "Marketing">Marketing</option>
-						<option value = "Nursing">Nursing</option>
-						<option value = "Physics">Physic</option>
-						<option value = "Psycology">Psycology</option>  
-						</select>
-				<p> 4. What year are you in? </p>
-						<input type = "radio" name = "year" value = "1"> Freshman
-						<input type = "radio" name = "year" value = "2"> Sophomore
-						<input type = "radio" name = "year" value = "3"> Junior
-						<input type = "radio" name = "year" value = "4"> Senior
-						<input type = "radio" name = "year" value = "5"> Graduate
-			    <p> 5. What is your career goal? </p>
-				<div>
-					<textarea id="msg" name="user_message" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
-				<p> 6. What are some hobbies do you have? </p>
-					<input type = "checkbox" name = "hobby" value = "painting"> Painting
-					<input type = "checkbox" name = "hobby" value = "cooking"> Cooking
-					<input type = "checkbox" name = "hobby" value = "baking"> Baking
-					<input type = "checkbox" name = "hobby" value = "dancing"> Dancing
-					<input type = "checkbox" name = "hobby" value = "boardGame"> Board Game
-					<input type = "checkbox" name = "hobby" value = "videoGame"> Video Game
-					<input type = "checkbox" name = "hobby" value = "reading"> Reading
-					<input type = "checkbox" name = "hobby" value = "manga"> Manga
-					<input type = "checkbox" name = "hobby" value = "travel"> Travel
-					<input type = "checkbox" name = "hobby" value = "design"> Design
-					<input type = "checkbox" name = "hobby" value = "fishing"> Fishing
-					<input type = "checkbox" name = "hobby" value = "hangOut"> Hang out 
-					<input type = "checkbox" name = "hobby" value = "netSurfing"> Net Surfing
-					<input type = "checkbox" name = "hobby" value = "hiking"> Hiking
-					<input type = "checkbox" name = "hobby" value = "surfing"> Surfing
-					<input type = "checkbox" name = "hobby" value = "skating"> Skating
-					<input type = "checkbox" name = "hobby" value = "biking"> Biking
+			<p> 2. What is your major? </p>
+				<select name = "major">
+					<option value = "Art">Art</option>
+					<option value = "Accounting">Accounting</option>
+					<option value = "Business">Business</option>
+					<option value = "Bio">Biology</option>
+					<option value = "Chem">Chemistry</option>
+					<option value = "CS">Computer Science</option>
+					<option value = "Early Edu">Early Education</option>
+					<option value = "Economics">Economics</option>
+					<option value = "Finance">Finance</option>
+					<option value = "History">History</option>
+					<option value = "Maths">Math</option>
+					<option value = "Marketing">Marketing</option>
+					<option value = "Nursing">Nursing</option>
+					<option value = "Physics">Physic</option>
+					<option value = "Psycology">Psycology</option>  
+				</select>
+			<p> 3. What is your minor? </p>
+				<select name = "minor">
+					<option value = "N/A">N/A</option>
+					<option value = "Art">Art</option>
+					<option value = "Accounting">Accounting</option>
+					<option value = "Business">Business</option>
+					<option value = "Bio">Biology</option>
+					<option value = "Chem">Chemistry</option>
+					<option value = "CS">Computer Science</option>
+					<option value = "Early Edu">Early Education</option>
+					<option value = "Economics">Economics</option>
+					<option value = "Finance">Finance</option>
+					<option value = "History">History</option>
+					<option value = "Math">Math</option>
+					<option value = "Marketing">Marketing</option>
+					<option value = "Nursing">Nursing</option>
+					<option value = "Physic">Physic</option>
+					<option value = "Psychology">Psychology</option>  
+					</select>
+			<p> 4. What year are you in? </p>
+					<input type = "radio" name = "year" value = "1"> Freshman
+					<input type = "radio" name = "year" value = "2"> Sophomore
+					<input type = "radio" name = "year" value = "3"> Junior
+					<input type = "radio" name = "year" value = "4"> Senior
+					<input type = "radio" name = "year" value = "5"> Graduate
+			<p> 5. What is your career goal? </p>
+				<div><textarea id="msg" name="goal" rows="3" cols="40" placeholder="Enter Text Here"></textarea>   </div>
+			<p> 6. What are some hobbies do you have? </p>
+				<input type = "checkbox" name = "hobby" value = "painting"> Painting
+				<input type = "checkbox" name = "hobby" value = "cooking"> Cooking
+				<input type = "checkbox" name = "hobby" value = "baking"> Baking
+				<input type = "checkbox" name = "hobby" value = "dancing"> Dancing
+				<input type = "checkbox" name = "hobby" value = "boardGame"> Board Game
+				<input type = "checkbox" name = "hobby" value = "videoGame"> Video Game
+				<input type = "checkbox" name = "hobby" value = "reading"> Reading
+				<input type = "checkbox" name = "hobby" value = "manga"> Manga
+				<input type = "checkbox" name = "hobby" value = "travel"> Travel
+				<input type = "checkbox" name = "hobby" value = "design"> Design
+				<input type = "checkbox" name = "hobby" value = "fishing"> Fishing
+				<input type = "checkbox" name = "hobby" value = "hangOut"> Hang out 
+				<input type = "checkbox" name = "hobby" value = "netSurfing"> Net Surfing
+				<input type = "checkbox" name = "hobby" value = "hiking"> Hiking
+				<input type = "checkbox" name = "hobby" value = "surfing"> Surfing
+				<input type = "checkbox" name = "hobby" value = "skating"> Skating
+				<input type = "checkbox" name = "hobby" value = "biking"> Biking
                 <br><br>
-                <input type = "hidden" name = "questionnaire" value = "true" />
+            <input type = "hidden" name = "questionnaire" value = "true" />
 			<input class = "submitButton"type="image" alt="Find Connection" src="Find-Connection.png" type = "submit" />		
 		</form>
-		</div>
 	</body>
 </html>
