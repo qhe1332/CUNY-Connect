@@ -39,6 +39,42 @@ function validate(accountInfo)
 	
 }
 
+
+/* signIn function
+ 	- check if the email provided is a cuny email/validation, if not, return error message page
+	- check if email, username, and password is within the database, if not, return error message page
+	- return user object*/
+function signIn(accountInfo)
+{
+	if(!accountInfo.login)
+	{
+		console.log("Login not found");
+		return;
+	}
+	
+	/*check info validation */
+	if(validate(accountInfo) == "fill" || validate(accountInfo) == "email")
+	{
+		console.log("Validation failed");
+		return;
+	}
+	/*check if email, username, and password match in database */
+	var data = fs.readFileSync("database.txt"); //read data from database
+	data = data.toString().split(";"); //split into an array of json obj
+	for(var i = 0; i < data.length; i++)
+	{
+		var dbaseAccount = JSON.parse(data[i]); //parse the json object
+		if(dbaseAccount.email == accountInfo.email && dbaseAccount.user == accountInfo.user && dbaseAccount.pass == accountInfo.pass)
+		{
+			console.log("Account Found");
+			console.log(dbaseAccount);
+			return dbaseAccount;
+		}
+	}
+	console.log("Account not found");
+	return;
+}
+
 /* Registration function
 	- check info validation, if "fill" or "email", return that str.
 	- check if account is already in database. If not, return accountInfo object (data will be added into database after completing quiz)*/
@@ -58,7 +94,7 @@ function registration(accountInfo)
 
 	/*check if the same email exist in database*/
 	var data = fs.readFileSync("database.txt"); //read data from database
-	data = data.toString().split(";"); //split into an array of json obj
+	data = data.toString().split(";"); //split into an array of json obj string
 	for(var i = 0; i < data.length; i++)
 	{
 		var dbaseAccount = JSON.parse(data[i]); //parse the json object
@@ -71,7 +107,6 @@ function registration(accountInfo)
 
 	return accountInfo; //return account object
 }	
-
 /*Questionnaire function
 	- check if the POST request is a quiz
 	- add new user data and quiz answer into database*/
@@ -110,6 +145,7 @@ http.createServer(function(req, res)
 					var inputData = qs.parse(input.toString());
 
 					userObj = registration(inputData);
+					userObj2 = signIn(inputData);
 					userObject = storeQuizData(inputData);
 					if(typeof userObj === 'string')//if a str is returned, there's an error
 					{
@@ -117,14 +153,16 @@ http.createServer(function(req, res)
 						{
 							console.log("Please fill in all information!");
 							res.writeHead(301, {"Location": "/fillError.html"}); //stay on page
-							res.write(data);
 						}
 						else
 						{
 							console.log("Invalid email. Please enter your CUNY Email.");
 							res.writeHead(301, {"Location": "/emailError.html"}); //stay on page
-							res.write('<script>document.write("Validation failed: Invalid email. Please enter a valid CUNY Email.")</script>');
 						}
+					}else if(inputData.login && userObj2 == undefined)
+					{
+						console.log("Login Failed: Please try again.");
+						res.writeHead(301, {"Location": "/loginError.html"}); //stay on page
 					}
 					else{
 						res.writeHead(200, {"Content-Type": "text/html"}); //html file
@@ -135,7 +173,13 @@ http.createServer(function(req, res)
 						res.write("<script>data = " + JSON.stringify(userObject) + "</script>");
 					}
 					else{
-						res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
+						if(userObj2 != undefined)
+						{
+							res.write("<script>data = " + JSON.stringify(userObj2) + "</script>");
+						}
+						else{
+							res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
+						}
 					}
 					res.end();
 				})
