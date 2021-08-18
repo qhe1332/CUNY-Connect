@@ -9,10 +9,7 @@ const port = 8080;
 /*RandomMatch function
 	- compare user data with accounts in database
 	- return an array of user email */
-function randomMatch()
-{
-
-}
+function Match()
 
 /**/
 
