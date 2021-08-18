@@ -87,6 +87,7 @@ function storeQuizData(inputData)
 	
 	console.log("New Account");
 	console.log(inputData);
+	return inputData;
 }
 
 /* Web Server */
@@ -109,7 +110,7 @@ http.createServer(function(req, res)
 					var inputData = qs.parse(input.toString());
 
 					userObj = registration(inputData);
-					storeQuizData(inputData);
+					userObject = storeQuizData(inputData);
 					if(typeof userObj === 'string')//if a str is returned, there's an error
 					{
 						if(userObj == "fill")
@@ -130,6 +131,7 @@ http.createServer(function(req, res)
 					}
 					res.write(data);
 					res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
+					res.write("<script>data = " + JSON.stringify(userObject) + "</script>");
 					res.end();
 				})
 			}
