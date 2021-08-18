@@ -152,19 +152,21 @@ http.createServer(function(req, res)
 						if(userObj == "fill")
 						{
 							console.log("Please fill in all information!");
-							res.writeHead(301, {"Location": "/fillError.html"}); //stay on page
+							res.writeHead(301, {"Location": "/fillError.html"}); //error page
 						}
-						else
-						{
+						else{
 							console.log("Invalid email. Please enter your CUNY Email.");
-							res.writeHead(301, {"Location": "/emailError.html"}); //stay on page
+							res.writeHead(301, {"Location": "/emailError.html"}); //error page
 						}
-					}else if(inputData.login && userObj2 == undefined)
+					}else if(inputData.register && userObj == undefined)
+					{
+						res.writeHead(301, {"Location": "/signUpError.html"}); //error page
+					}
+					else if(inputData.login && userObj2 == undefined)
 					{
 						console.log("Login Failed: Please try again.");
 						res.writeHead(301, {"Location": "/loginError.html"}); //stay on page
-					}
-					else{
+					}else{
 						res.writeHead(200, {"Content-Type": "text/html"}); //html file
 					}
 					res.write(data);
