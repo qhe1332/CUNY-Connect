@@ -3,13 +3,47 @@ var http = require("http");
 var fs = require("fs");
 var url = require("url");
 var qs = require("querystring");
+const { userInfo } = require("os");
 const host = 'localhost';
 const port = 8080;
 
 /*RandomMatch function
 	- compare user data with accounts in database
 	- return an array of user email */
-function Match()
+function compare(userInfo)
+{   
+	var output = [];
+	var data = fs.readFileSync("database.txt"); //read data from database
+	data = data.toString().split(";"); //split into an array of json obj
+
+    // for each array passed as an argument to the function
+    for (var i = 0; i < data.length; i++) {
+		var dbaseAccount = JSON.parse(data[i]); //parse the json object
+		for (var j = 0; j< userInfo.hobby.length; j++){
+			for (var k = 0; k< dbaseAccount.hobby.length; k++){
+			
+				if (dbaseAccount.hobby[k] == userInfo.hobby[j]){
+					
+				}
+
+			
+			}
+			   
+		}
+		    
+        
+
+	}
+    // now collect all results that are in all arrays
+    for (hobby in userInfo) {
+        if (userInfo.hasOwnProperty(hobby) && userInfo[hobby] === data.length) {
+            output.push(hobby.substring(1));
+        }
+    }
+    return(output);
+}    
+
+
 
 /**/
 
