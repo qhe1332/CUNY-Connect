@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chat</title>
 </head>
-<body>
-    
+<script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "455df7fa-10b4-409c-8a2e-dd1717316283", // The ID of this integration.
+        region: "us-south", // The region your integration is hosted in.
+        serviceInstanceID: "54bd78c8-75d6-4bbb-9fbf-e44ba8b4d4a4", // The ID of your service instance.
+        onLoad: function(instance) { instance.render(); }
+      };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  </script>
+<body style="background-color:whitesmoke;" >
+       
 </body>
 </html>
