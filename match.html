@@ -8,6 +8,7 @@
     <link rel = "stylesheet" href = "quiz.css" />
     <link rel= "icon" href= "Logo.png">
     <link rel= "stylesheet" href= "https://fonts.googleapis.com/css?family=Raleway">
+    <script src = "index.js"></script>
     <style>
         .logOut{
             float: right; 
@@ -17,11 +18,87 @@
         }
     </style>
     <script>
+        
         function initialize()
         {
             document.getElementById("name").innerHTML = data.first + " " + data.last;
+            disBox = document.getElementById("matchDisplay");
+            display();
+        }
+
+        function display()
+        {
+            for(var i = 0; i < matchArr.length; i++)
+            {
+                var nextLine = document.createElement("br");
+                var peopleBox = document.createElement("div");
+                peopleBox.className = "box";
+
+                if(data.hobby.length == matchArr[i][0])
+                {
+                    mL = document.createTextNode("Perfect Match");
+                    peopleBox.style.backgroundColor = "#B998DA";
+                }
+                else if(data.hobby.length/matchArr[i][0] < 2)
+                {
+                    mL = document.createTextNode("Good Match");
+                    peopleBox.style.backgroundColor = "#9BDBFF";
+                }
+                else
+                {
+                    mL = document.createTextNode("Okay Match");
+                    peopleBox.style.backgroundColor = "#E5E5E5";
+                }
+                year = "";
+                if(matchArr[i][1].year == "1")
+                {
+                    year = matchArr[i][1].year + "st";
+                }
+                else if(matchArr[i][1].year == "2")
+                {
+                    year = matchArr[i][1].year + "nd";
+                }
+                else if(matchArr[i][1].year == "3")
+                {
+                    year = matchArr[i][1].year + "rd";
+                }
+                else if(matchArr[i][1].year == "4")
+                {
+                    year = matchArr[i][1].year + "th";
+                }
+                else{
+                    year = "Graduate";
+                }
+                pN = document.createTextNode(matchArr[i][1].first + " " + matchArr[i][1].last);
+                pI = document.createTextNode(matchArr[i][1].cunyCollege + ", " + year + ", " + matchArr[i][1].major);
+                cG = document.createTextNode("Career goal: " + matchArr[i][1].goal);
+
+                matchLevel = document.createElement("span");
+                matchLevel.className = "matchLevel";
+                matchLevel.appendChild(mL);
+                personName = document.createElement("span");
+                personName.className = "name";
+                personName.appendChild(pN);
+                personInfo = document.createElement("span");
+                personInfo.className = "info";
+                personInfo.appendChild(pI);
+                careerGoal = document.createElement("span");
+                careerGoal.className = "goal";
+                careerGoal.appendChild(cG);
+
+                peopleBox.appendChild(matchLevel);
+                peopleBox.appendChild(nextLine);
+                peopleBox.appendChild(personName);
+                peopleBox.appendChild(nextLine);
+                peopleBox.appendChild(personInfo);
+                peopleBox.appendChild(nextLine);
+                peopleBox.appendChild(careerGoal);
+                disBox.appendChild(peopleBox);
+            }
+            return;
         }
     </script>
+    <script src = "index.js"></script>
 </head>
 <body onload = "initialize();">
     <img class = "brandSignature" src = "brandSignature.png"/>
@@ -30,6 +107,19 @@
         <span style="font-size: 20px;">Hello, <span id = "name"></span>!</span> <br>
         <span style="font-size: 16px;">Welcome to our match page! Here is a list of CUNY students we found that you might want to connect with. </span>
     </div>
-    <li></li>
+    <li id = "matchDisplay">
+        <div class = "box">
+            <span class = "matchLevel">Perfect Match</span><br>
+            <span class = "name">Liana Blankenship</span><br>
+            <span class = "info">Queens College, 1st, Computer Science</span><br>
+            <span class = "goal">Career Goal: My career goal to begin my own start up and be a CEO.</span>
+        </div>
+        <div class = "box">
+            <span class = "matchLevel">Good Match</span><br>
+            <span class = "name">Kay Scott</span><br>
+            <span class = "info">LaGuardia Community College, 2nd, Computer Science</span><br>
+            <span class = "goal">Career Goal: Find a stable job within 5 years.</span>
+        </div>
+    </li>
 </body>
 </html>

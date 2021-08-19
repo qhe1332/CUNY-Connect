@@ -3,14 +3,13 @@ var http = require("http");
 var fs = require("fs");
 var url = require("url");
 var qs = require("querystring");
-const { userInfo } = require("os");
 const host = 'localhost';
 const port = 8080;
 
-/*RandomMatch function
+/*CompareData function
 	- compare user data with accounts in database
-	- return an array of user email */
-function compare(userInfo)
+	- return an double array of user object */
+function compareData(userInfo)
 {   
 	var output = [];
 	var data = fs.readFileSync("database.txt"); //read data from database
@@ -19,33 +18,65 @@ function compare(userInfo)
     // for each array passed as an argument to the function
     for (var i = 0; i < data.length; i++) {
 		var dbaseAccount = JSON.parse(data[i]); //parse the json object
-		for (var j = 0; j< userInfo.hobby.length; j++){
-			for (var k = 0; k< dbaseAccount.hobby.length; k++){
-			
-				if (dbaseAccount.hobby[k] == userInfo.hobby[j]){
-					
-				}
+		var outputItem = []; //subarray
+		outputItem[0] = 0;
 
-			
+		if(dbaseAccount.email != userInfo.email){
+			for (var j = 0; j< userInfo.hobby.length; j++){
+				for (var k = 0; k< dbaseAccount.hobby.length; k++){
+					if (dbaseAccount.hobby[k] == userInfo.hobby[j]){
+						outputItem[0] ++;
+					}
+				}  
 			}
-			   
 		}
-		    
-        
-
+		if(outputItem[0] != 0)
+		{
+			outputItem.push(dbaseAccount);
+			output.push(outputItem);
+		}
 	}
-    // now collect all results that are in all arrays
-    for (hobby in userInfo) {
-        if (userInfo.hasOwnProperty(hobby) && userInfo[hobby] === data.length) {
-            output.push(hobby.substring(1));
-        }
+    //sort output array, from most hobby in common to least
+    for(var i = 0; i < output.length-1; i++)
+	{
+        for(var j = 1; j < output.length; j++)
+		{
+			if(output[i][0] < output[j][0])
+			{
+				var temp = output[i];
+				output[i] = output[j];
+				output[j] = temp;
+			}
+		}
     }
-    return(output);
+	/*console.log("Compare result");
+	console.log(output);*/
+    return output;
 }    
 
 
 
-/**/
+/*DisplayMatch function
+	- takes in the array created in the compare function
+	- use append child to add to display info on webpage*/
+function displayMatch(userInfo)
+{
+	var data = fs.readFileSync("database.txt"); //read data from database
+	data = data.toString().split(";"); //split into an array of json obj string
+	for(var i = 0; i < data.length; i++)
+	{
+		var dbaseAccount = JSON.parse(data[i]); //parse the json object
+		if(dbaseAccount.email == userInfo.email)
+		{
+			userInfo = dbaseAccount;
+			break;
+		}
+	}
+	console.log(userInfo);
+
+	matchArr = compareData(userInfo);
+	return matchArr;
+}
 
 
 
@@ -175,6 +206,10 @@ http.createServer(function(req, res)
 				req.on('data', function(input){
 					var inputData = qs.parse(input.toString());
 
+					if(pathname == "match.html")
+					{
+						matchArray = displayMatch(inputData);
+					}
 					userObj = registration(inputData);
 					userObj2 = signIn(inputData);
 					userObject = storeQuizData(inputData);
@@ -209,6 +244,7 @@ http.createServer(function(req, res)
 						if(userObj2 != undefined)
 						{
 							res.write("<script>data = " + JSON.stringify(userObj2) + "</script>");
+							res.write("<script>matchArr = " + JSON.stringify(matchArray) + "</script>");
 						}
 						else{
 							res.write("<script>data = " + JSON.stringify(userObj) + "</script>");

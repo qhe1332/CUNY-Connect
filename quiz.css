@@ -48,3 +48,51 @@ div.intro{
   width: 100%;
   height: 80px;
 }
+
+#matchDisplay{
+  margin: -20px;
+  padding-top: 25px;
+  padding-left: 80px;
+  padding-right: 80px;
+  height: 600px;
+  font-style: normal;
+  font-weight: bold;
+}
+.box{
+  margin: 20px;
+  float: left;
+  width: 42%;
+  height: 246px;
+  padding: 30px;
+  border: solid;
+  color: black;
+}
+.matchLevel{
+  float: right;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: right;
+}
+.name{
+  padding-top: 80px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 50px;
+  display: flex;
+}
+.info{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 10px;
+}
+.goal{
+  width: 320px;
+  padding-top: 50px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+}
