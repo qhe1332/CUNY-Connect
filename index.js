@@ -8,7 +8,7 @@ const port = 8080;
 
 /*CompareData function
 	- compare user data with accounts in database
-	- return an double array of user object */
+	- return an double array of #ofSimilarHobby and user objects */
 function compareData(userInfo)
 {   
 	var output = [];
@@ -39,7 +39,7 @@ function compareData(userInfo)
     //sort output array, from most hobby in common to least
     for(var i = 0; i < output.length-1; i++)
 	{
-        for(var j = 1; j < output.length; j++)
+        for(var j = i+1; j < output.length; j++)
 		{
 			if(output[i][0] < output[j][0])
 			{
@@ -49,16 +49,15 @@ function compareData(userInfo)
 			}
 		}
     }
-	/*console.log("Compare result");
-	console.log(output);*/
     return output;
 }    
 
 
 
 /*DisplayMatch function
-	- takes in the array created in the compare function
-	- use append child to add to display info on webpage*/
+	- search for the complete user info in database
+	- execute comparData function
+	- return the resulting double array*/
 function displayMatch(userInfo)
 {
 	var data = fs.readFileSync("database.txt"); //read data from database
@@ -72,7 +71,6 @@ function displayMatch(userInfo)
 			break;
 		}
 	}
-	console.log(userInfo);
 
 	matchArr = compareData(userInfo);
 	return matchArr;
@@ -208,6 +206,7 @@ http.createServer(function(req, res)
 
 					if(pathname == "match.html")
 					{
+						console.log(inputData);
 						matchArray = displayMatch(inputData);
 					}
 					userObj = registration(inputData);
@@ -231,22 +230,23 @@ http.createServer(function(req, res)
 					else if(inputData.login && userObj2 == undefined)
 					{
 						console.log("Login Failed: Please try again.");
-						res.writeHead(301, {"Location": "/loginError.html"}); //stay on page
+						res.writeHead(301, {"Location": "loginError.html"}); //error page
 					}else{
 						res.writeHead(200, {"Content-Type": "text/html"}); //html file
 					}
 					res.write(data);
-					if(userObject != undefined)
+					if(userObject != undefined) //going to match.html after creating profile
 					{
-						res.write("<script>data = " + JSON.stringify(userObject) + "</script>");
+						res.write("<script>data = " + JSON.stringify(userObject) + "</script>"); //userInfo
+						res.write("<script>matchArr = " + JSON.stringify(matchArray) + "</script>"); //array of matching people
 					}
 					else{
-						if(userObj2 != undefined)
+						if(userObj2 != undefined) //going to match.html after login
 						{
 							res.write("<script>data = " + JSON.stringify(userObj2) + "</script>");
 							res.write("<script>matchArr = " + JSON.stringify(matchArray) + "</script>");
 						}
-						else{
+						else{ 
 							res.write("<script>data = " + JSON.stringify(userObj) + "</script>");
 						}
 					}

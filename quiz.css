@@ -64,8 +64,8 @@ div.intro{
   width: 42%;
   height: 246px;
   padding: 30px;
-  border: solid;
-  color: black;
+  text-decoration: none;
+  color:black;
 }
 .matchLevel{
   float: right;
